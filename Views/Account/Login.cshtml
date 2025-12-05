@@ -1,0 +1,28 @@
+﻿@model WebFamilyFrontEnd.Models.LoginRequest
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Login</h2>
+
+    <form asp-action="Login" asp-controller="Account" method="post" class="card p-4 shadow-sm">
+        <div class="mb-3">
+            <label asp-for="Username" class="form-label">Usuário</label>
+            <input asp-for="Username" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label">Senha</label>
+            <input asp-for="Password" type="password" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Entrar</button>
+    </form>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger mt-3">
+            @ViewBag.Error
+        </div>
+    }
+</div>

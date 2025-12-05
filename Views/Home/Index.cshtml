@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Menu Principal";
+    var token = Context.Session.GetString("token");
+}
+
+<h2>Menu Principal</h2>
+
+@if (!string.IsNullOrEmpty(token))
+{
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a asp-controller="Clientes" asp-action="Index">Gerenciar Clientes</a>
+        </li>
+        <li class="list-group-item">
+            <a asp-controller="Grupos" asp-action="Index">Gerenciar Grupos</a>
+        </li>
+        <li class="list-group-item">
+            <a asp-controller="Account" asp-action="Logout">Sair</a>
+        </li>
+    </ul>
+}
+else
+{
+    <div class="alert alert-warning">
+        Você precisa estar logado para acessar o sistema.
+    </div>
+    <a asp-controller="Account" asp-action="Login" class="btn btn-primary">Ir para Login</a>
+}

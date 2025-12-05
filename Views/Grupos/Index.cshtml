@@ -1,0 +1,21 @@
+﻿@model List<WebFamilyFrontEnd.Models.Grupo>
+
+<h2>Grupos</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var grupo in Model)
+        {
+            <tr>
+                <td>@grupo.Nome</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">Cadastrar novo grupo</a>
